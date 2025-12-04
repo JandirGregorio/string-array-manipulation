@@ -15,25 +15,30 @@ const userName = "  MAYA   Rodriguez  ";
 console.log(userName);
 
 // Step 1: Remove extra whitespace
-const trimmed = undefined;
+const trimmed = userName.trim();
 console.log(trimmed); // "MAYA   Rodriguez"
 
 // Step 2: Normalize case
-const lower = undefined;
+const lower = trimmed.toLowerCase();
 console.log(lower); // "maya   rodriguez"
 
 // Step 3: Handle the spaces between names
-const parts = undefined;
+const parts = lower.split(' ');
 console.log(parts); // ["maya", "", "", "rodriguez"]
 
 
 // Step 4: Filter out empty strings
-const cleanParts = undefined;
+const cleanParts = parts.filter((part) => part !== '');
 console.log(cleanParts); // ["maya", "rodriguez"]
 
+const capWords = cleanParts.map((word) => {
+  const first = word[0].toUpperCase();
+  const rest = word.slice(1);
+  return first + rest;
+})
 // Step 5: Capitalize first letter of each
-console.log(cleanParts); // ["Maya", "Rodriguez"]
+console.log(capWords); // ["Maya", "Rodriguez"]
 
 // Step 6: Join back together
-const formatted = undefined;
+const formatted = capWords.join(" ");
 console.log(formatted); // "Maya Rodriguez"
